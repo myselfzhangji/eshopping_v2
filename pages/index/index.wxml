@@ -2,12 +2,16 @@
 <view class="container">
   <view class="userinfo">
   
+  <image src="cloud://test-kmay4.7465-test-kmay4-1259785893/room-u59EtKexGJk2d974a24237a9dc71fb0f9ab35c327dc2"></image>
+
   <button
   open-type="getUserInfo" 
   bindgetuserinfo='getUserInfo'
   >登录</button>
   <block>
   <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+  <button type='primary' bindtap='addMall'>添加商品</button>
+  <button type='primary' bindtap='getMall'>获取商品</button>
   </block>
 
     <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>

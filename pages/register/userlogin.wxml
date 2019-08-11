@@ -1,0 +1,11 @@
+<!--pages/register/userlogin.wxml-->
+<!--index.wxml-->
+<!-- <text>pages/register/userlogin.wxml</text> -->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权登录 </button>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">FindHouse找房</text>
+  </view>
+</view>

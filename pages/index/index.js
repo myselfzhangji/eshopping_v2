@@ -24,7 +24,7 @@ Page({
     const PAGE = 5
     db.collection('emall').skip(this.page * PAGE).limit(PAGE).get({
       success: res => {
-        console.log('ujhgty', res.data)
+        //console.log('ujhgty', res.data)
 
         if(isInit){
           this.setData({

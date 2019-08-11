@@ -267,7 +267,7 @@ Page({
         db.collection('emall').add({
           data: {
             title: this.data.location + '有房出租',
-            price: this.data.price,
+            price: this.data.price + '/月',
             image: res.fileID
           },
           success: res2 => {

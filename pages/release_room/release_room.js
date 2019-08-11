@@ -48,6 +48,8 @@ Page({
     }],
     price: 0,
     location:'',
+    filepath:'',
+    cloudpath:'',
   },
 
   valuechange: function (res) {
@@ -181,36 +183,51 @@ Page({
 
   },
 
-  addMall() {
+  addMyRoomInfo() {
     wx.chooseImage({
       count: 4,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: res => {
-        const filePath = res.tempFilePaths[0]
-        const tempFile = filePath.split('.')
-        const cloudPath = 'room-' + tempFile[tempFile.length - 2] + '.jpg'
-        wx.cloud.uploadFile({
-          cloudPath,  // 上传至云端的路径
-          filePath,   // 小程序临时文件路径
-          success: res => {
-            console.log(res)
-            db.collection('emall').add({
-              data: {
-                title: this.data.location + '有房出租',
-                price: this.data.price,
-                image: res.fileID
-              },
-              success: res2 => {
-                console.log(res2)
-                wx.showToast({
-                  title: '新增成功',
-                })
-              }
+        // const tempFilePaths = res.tempFilePaths
+        // const filePath = res.tempFilePaths[0]
+        // const tempFile = filePath.split('.')
+        // const cloudPath = 'room-' + tempFile[tempFile.length - 2] + '.jpg'
+        this.setData({
+          filepath: res.tempFilePaths[0],
+        })
+        console.log('filepath',this.data.filepath)
+        const tempFile = res.tempFilePaths[0].split('.')
+        this.setData({
+          cloudpath: 'room-' + tempFile[tempFile.length - 2] + '.jpg',
+        })
+      },
+      fail: err => {
+        console.error(err)
+      }
+    })
+  },
+
+  release(e){
+    wx.cloud.uploadFile({
+      cloudPath:this.data.cloudpath,  // 上传至云端的路径
+      filePath:this.data.filepath,   // 小程序临时文件路径
+      success: res => {
+        //console.log(res)
+        db.collection('emall').add({
+          data: {
+            title: this.data.location + '有房出租',
+            price: this.data.price,
+            image: res.fileID
+          },
+          success: res2 => {
+            //console.log(res2)
+            wx.showToast({
+              title: '新增成功',
             })
           }
         })
-        // const tempFilePaths = res.tempFilePaths
+      }
         // for (var i = 0; i < tempFilePaths.length; i++) {
         //   const tempFile = tempFilePaths[i].split('.')
         //   const tempcloudPath = 'room-' + tempFile[tempFile.length - 2] + '.jpg'
@@ -236,10 +253,6 @@ Page({
         //     fail: console.error
         //   })
         // }
-      },
-      fail: err => {
-        console.error(err)
-      }
     })
   },
 

@@ -74,7 +74,7 @@
             </view>
 
             <view class="weui-uploader__input-box">
-              <view class="weui-uploader__input" bindtap="addMall"></view>
+              <view class="weui-uploader__input" bindtap="addMyRoomInfo"></view>
             </view>
 
           </view>
@@ -83,7 +83,7 @@
     </view>
 
     <block>
-      <button class='btn' type='primary' bindtap='addMall'>发布房源</button>
+      <button class='btn' type='primary' bindtap='release'>发布房源</button>
       <button class='btn' type='primary' bindtap='getMall'>查看我的发布</button>
     </block>
   </view>

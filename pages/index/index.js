@@ -13,19 +13,49 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-    wx.showLoading({
-      title: '加载中...',
-    })
-    db.collection('emall').get({
+  onPullDownRefresh(){
+    this.getList(true)
+  },
+  onReachBottom(){
+    this.page += 1
+    this.getList(true)
+  },
+  getList(isInit){
+    const PAGE = 5
+    db.collection('emall').skip(this.page * PAGE).limit(PAGE).get({
       success: res => {
-        console.log('ujhgty',res)
-        this.setData({
-          list: res.data
-        })
-          wx.hideLoading()
+        console.log('ujhgty', res.data)
+
+        if(isInit){
+          this.setData({
+            list: res.data
+          })
+        } else {
+          this.setData({
+            list: this.data.list.concat(res.data)
+          })
+          wx.stopPullDownRefresh()
+        }
+        wx.hideLoading()
       }
     })
+  },
+
+  onLoad: function () {
+    this.page = 0;
+    this.getList(true)
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
+    // db.collection('emall').get({
+    //   success: res => {
+    //     console.log('ujhgty',res)
+    //     this.setData({
+    //       list: res.data
+    //     })
+    //       wx.hideLoading()
+    //   }
+    // })
   },
   getUserInfo: function(e) {
 

@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText" : "One Room一间房",
+  "enablePullDownRefresh": true
 }

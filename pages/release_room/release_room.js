@@ -14,7 +14,48 @@ Page({
     sliderLeft: 0,
     list: [],
     role: ['业主', '转租', '室友', '公寓'],
-    clickRoleId: -1
+    clickRoleId: -1,
+    rentMode: ['整租', '单间出租', '床位出租'],
+    clickrentModeId: -1,
+    comment: [{
+      value: '限男生',
+      selected: false,
+      title: '限男生'
+    }, {
+      value: '限女生',
+      selected: false,
+      title: '限女生'
+    }, {
+      value: '可情侣',
+      selected: false,
+      title: '可情侣'
+    }, {
+      value: '可办居住证',
+      selected: false,
+      title: '可办居住证'
+    }, {
+      value: '可备案',
+      selected: false,
+      title: '可备案'
+    }, {
+      value: '不可带宠物',
+      selected: false,
+      title: '不可带宠物'
+    }, {
+      value: '带独卫',
+      selected: false,
+      title: '带独卫'
+    }]
+  },
+
+  checkboxChange(e) {
+    console.log('checkboxChange e:', e);
+    let string = "comment[" + e.target.dataset.index + "].selected"
+    this.setData({
+      [string]: !this.data.comment[e.target.dataset.index].selected
+    })
+    let detailValue = this.data.comment.filter(it => it.selected).map(it => it.value)
+    console.log('所有选中的值为：', detailValue)
   },
 
   /**
@@ -29,6 +70,18 @@ Page({
     }
     this.setData({
       clickRoleId: res.currentTarget.id
+    })
+  },
+
+  chooseRentMode: function (res) {
+    if (this.data.clickrentModeId == res.currentTarget.id) {
+      this.setData({
+        clickrentModeId: -1
+      })
+      return;
+    }
+    this.setData({
+      clickrentModeId: res.currentTarget.id
     })
   },
 

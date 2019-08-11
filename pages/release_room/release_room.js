@@ -212,20 +212,25 @@ Page({
         })
         // const tempFilePaths = res.tempFilePaths
         // for (var i = 0; i < tempFilePaths.length; i++) {
-        //   let randString = Math.floor(Math.random() * 1000000).toString() + '.png'
+        //   const tempFile = tempFilePaths[i].split('.')
+        //   const tempcloudPath = 'room-' + tempFile[tempFile.length - 2] + '.jpg'
         //   wx.cloud.uploadFile({
-        //     cloudPath: randString, // 上传至云端的路径
+        //     cloudPath: tempcloudPath, // 上传至云端的路径
         //     filePath: tempFilePaths[i], // 小程序临时文件路径
         //     success: res => {
-        //       photos.add({
+        //       console.log(res)
+        //       db.collection('emall').add({
         //         data: {
+        //           title: this.data.location + '出租',
+        //           price: this.data.price,
         //           image: res.fileID
+        //         },
+        //         success: res2 => {
+        //           console.log(res2)
+        //           wx.showToast({
+        //             title: '新增成功',
+        //           })
         //         }
-        //       }).then(res => {
-        //         wx.showToast({
-        //           title: '上传成功',
-        //           icon: 'success'
-        //         })
         //       })
         //     },
         //     fail: console.error

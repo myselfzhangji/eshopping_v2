@@ -59,9 +59,16 @@
       </view>
     </block>
 
+    <view class='title_tab'>附近地铁</view>
+    <view class='comment-btn'>
+      <button id='subway' wx:for="{{subway}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" class="btn {{item.selected ? 'btn-selected' : ''}}">
+        {{item.title}}
+      </button>
+    </view>
+
     <view class='title_tab'>备注(可多选)</view>
     <view class='comment-btn'>
-      <button wx:for="{{comment}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" class="btn {{item.selected ? 'btn-selected' : ''}}">
+      <button id='comment' wx:for="{{comment}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" class="btn {{item.selected ? 'btn-selected' : ''}}">
         {{item.title}}
       </button>
     </view>

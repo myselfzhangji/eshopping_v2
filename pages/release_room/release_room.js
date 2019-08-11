@@ -46,6 +46,35 @@ Page({
       selected: false,
       title: '带独卫'
     }],
+    subway: [{
+      value: '1号线',
+      selected: false,
+      title: '1号线'
+    }, {
+      value: '2号线',
+      selected: false,
+      title: '2号线'
+    }, {
+      value: '3号线',
+      selected: false,
+      title: '3号线'
+    }, {
+      value: '4号线',
+      selected: false,
+      title: '4号线'
+    }, {
+      value: '5号线',
+      selected: false,
+      title: '5号线'
+    }, {
+      value: '6号线',
+      selected: false,
+      title: '6号线'
+    }, {
+      value: '7号线',
+      selected: false,
+      title: '7号线'
+    }],
     price: 0,
     location:'',
     filepath:'',
@@ -60,8 +89,7 @@ Page({
           title: '价格不能为空',
           icon: 'none'
         })
-      }
-      if (res.target.id == 'location') {
+      }else if (res.target.id == 'location') {
         wx.showToast({
           title: '小区名称不能为空',
           icon: 'none'
@@ -86,12 +114,21 @@ Page({
 
   checkboxChange(e) {
     console.log('checkboxChange e:', e);
-    let string = "comment[" + e.target.dataset.index + "].selected"
-    this.setData({
-      [string]: !this.data.comment[e.target.dataset.index].selected
-    })
-    let detailValue = this.data.comment.filter(it => it.selected).map(it => it.value)
-    console.log('所有选中的值为：', detailValue)
+    if (e.target.id == 'comment'){
+      let string = "comment[" + e.target.dataset.index + "].selected"
+      this.setData({
+        [string]: !this.data.comment[e.target.dataset.index].selected
+      })
+      let detailValue = this.data.comment.filter(it => it.selected).map(it => it.value)
+      console.log('所有选中的值为：', detailValue)
+    } else if (e.target.id == 'subway'){
+      let string = "subway[" + e.target.dataset.index + "].selected"
+      this.setData({
+        [string]: !this.data.subway[e.target.dataset.index].selected
+      })
+      let detailValue = this.data.subway.filter(it => it.selected).map(it => it.value)
+      console.log('所有选中的值为：', detailValue)
+    }
   },
 
   /**

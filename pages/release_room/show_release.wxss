@@ -37,3 +37,16 @@
   color:white;
   width: 50rpx;
 }
+
+.selects{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.selects>.select{
+  margin: 10rpx;
+  float: left;
+  width: 195rpx;
+}
+.selects>.select>.btn{
+ background-color: #FFFFFF;
+}

@@ -12,7 +12,24 @@ Page({
     activeIndex: 1,
     sliderOffset: 0,
     sliderLeft: 0,
-    list: []
+    list: [],
+    selects: ['选择1', '选择2', '选择3', '选择4'],
+    clickId: -1
+  },
+
+  /**
+   * 用户点击Button,字体变色.
+   */
+  chooseRole: function (res) {
+    if (this.data.clickId == res.currentTarget.id) {
+      this.setData({
+        clickId: -1
+      })
+      return;
+    }
+    this.setData({
+      clickId: res.currentTarget.id
+    })
   },
 
   /**

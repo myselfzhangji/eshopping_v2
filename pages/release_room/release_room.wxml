@@ -1,26 +1,6 @@
 <!--pages/release/release.wxml-->
 
-<!-- <view class="page">
-    <view class="page__bd">
-        <view class="weui-tab">
-            <view class="weui-navbar">
-                <block wx:for="{{tabs}}" wx:key="*this">
-                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-                        <view class="weui-navbar__title">{{item}}</view>
-                    </view>
-                </block>
-                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-            </view>
-            <view class="weui-tab__panel">
-                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">房源信息</view>
-                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">求租信息</view>
-            </view>
-        </view>
-    </view>
-</view> -->
-
-
-<view class="container">
+<!-- <view class="container">
   <view class="userinfo">
   
   <block>
@@ -29,4 +9,22 @@
   <button type='primary' bindtap='getMall'>查看我的发布</button>
   </block>
   </view>
+</view> -->
+
+
+<view class='selects'>
+  <block wx:key="index" wx:for='{{ selects }}'>
+    <view class='select' id='{{index}}' bindtap='chooseRole'>
+      <block wx:if="{{index==clickId}}">
+        <button class='selects' style='color:black'>
+          {{ item }}
+        </button>
+      </block>
+      <block wx:else>
+        <button class='noselects' style='color:black'>
+          {{ item }}
+        </button>
+      </block>
+    </view>
+  </block>
 </view>

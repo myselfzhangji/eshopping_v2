@@ -38,3 +38,22 @@
   color:white;
   width: 50rpx;
 }
+
+.selects{
+  background:#EA5149;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.noselects{
+  background:#FFFFFF;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.selects>.select{
+  margin: 10rpx;
+  float: left;
+  width: 195rpx;
+}
+.selects>.select>.btn{
+ background-color: #FFFFFF;
+}

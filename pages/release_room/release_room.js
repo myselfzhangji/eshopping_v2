@@ -13,22 +13,22 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     list: [],
-    selects: ['选择1', '选择2', '选择3', '选择4'],
-    clickId: -1
+    role: ['业主', '转租', '室友', '公寓'],
+    clickRoleId: -1
   },
 
   /**
    * 用户点击Button,字体变色.
    */
   chooseRole: function (res) {
-    if (this.data.clickId == res.currentTarget.id) {
+    if (this.data.clickRoleId == res.currentTarget.id) {
       this.setData({
-        clickId: -1
+        clickRoleId: -1
       })
       return;
     }
     this.setData({
-      clickId: res.currentTarget.id
+      clickRoleId: res.currentTarget.id
     })
   },
 

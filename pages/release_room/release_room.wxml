@@ -11,11 +11,11 @@
   </view>
 </view> -->
 
-
+<view class='title_tab'>发布者</view>
 <view class='selects'>
-  <block wx:key="index" wx:for='{{ selects }}'>
+  <block wx:key="index" wx:for='{{ role }}'>
     <view class='select' id='{{index}}' bindtap='chooseRole'>
-      <block wx:if="{{index==clickId}}">
+      <block wx:if="{{index==clickRoleId}}">
         <button class='selects' style='color:black'>
           {{ item }}
         </button>

@@ -39,6 +39,14 @@
   width: 50rpx;
 }
 
+.title_tab{
+  background:yellow;
+  width: 150rpx;
+  height: 50rpx;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
 .selects{
   background:#EA5149;
   margin-left: 5%;

@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/message/message",
     "pages/release_room/release_room",
-    "pages/wish_list/wish_list"
+    "pages/wish_list/wish_list",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

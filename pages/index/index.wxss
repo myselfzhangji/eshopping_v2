@@ -1,12 +1,11 @@
 /**index.wxss**/
 .item-container {
   display: flex;
-  margin-top: 2000rpx;
 }
 
 .image {
-  width: 200rpx;
-  height: 100rpx;
+  width: 300rpx;
+  height: 150rpx;
   flex: 1;
 }
 

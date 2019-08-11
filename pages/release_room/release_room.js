@@ -11,7 +11,8 @@ Page({
     tabs: ["发布房源", "查看我的发布"],
     activeIndex: 1,
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+    list: []
   },
 
   /**
@@ -142,11 +143,10 @@ Page({
     })
   },
 
-  getMall() {
-    db.collection('emall').get({
-      success: res => {
-        console.log('kdjfkdjfjfl',res)
-      }
+  getMall(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: './show_release',
     })
   },
 

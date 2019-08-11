@@ -47,19 +47,30 @@ Page({
       title: '带独卫'
     }],
     price: 0,
+    location:'',
   },
 
   valuechange: function (res) {
-    //console.log('value', res.detail.value)
-    this.setData({
-      price: res.detail.value
-    })
-    if (this.data.price == '') {
+    //console.log('value', res)
+    if (res.detail.value == '') {
       wx.showToast({
         title: '不能为空',
         icon: 'none'
       })
       return
+    }
+
+    if (res.target.id == 'price'){
+      this.setData({
+        price: res.detail.value
+      })
+      //console.log('price', this.data.price)
+    }
+    if (res.target.id == 'location') {
+      this.setData({
+        location: res.detail.value
+      })
+      //console.log('location', this.data.location)
     }
   },
 
@@ -186,9 +197,8 @@ Page({
             console.log(res)
             db.collection('emall').add({
               data: {
-                title: '商品2',
-                price: 18,
-                tags: ['books', 'food'],
+                title: this.data.location + '有房出租',
+                price: this.data.price,
                 image: res.fileID
               },
               success: res2 => {

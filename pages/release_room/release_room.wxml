@@ -2,40 +2,52 @@
 
 <view class="page">
   <view class="page__hd">
-    <view class='title_tab'>发布者</view>
+
+    <view class='title_tab'>房租(元/月)</view>
+    <block>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="{{placeholder}}" value="{{value}}" bindchange='valuechange' />
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view class='title_tab'>发布者(单选)</view>
     <block wx:key="index" wx:for='{{ role }}'>
       <view class='select' id='{{index}}' bindtap='chooseRole'>
         <block wx:if="{{index==clickRoleId}}">
-          <button class='selects' type="primary" style='color:black' size="mini">
-            {{ item }}
+          <button class='selects' style='color:black' size="mini">
+            {{item}}
           </button>
         </block>
         <block wx:else>
           <button class='noselects' style='color:black' size="mini">
-            {{ item }}
+            {{item}}
           </button>
         </block>
       </view>
     </block>
 
-    <view class='title_tab'>租赁方式</view>
+    <view class='title_tab'>租赁方式(单选)</view>
     <block wx:key="index" wx:for='{{ rentMode }}'>
       <view class='select' id='{{index}}' bindtap='chooseRentMode'>
         <block wx:if="{{index==clickrentModeId}}">
           <button class='selects' type="primary" style='color:black' size="mini">
-            {{ item }}
+            {{item}}
           </button>
         </block>
         <block wx:else>
           <button class='noselects' style='color:black' size="mini">
-            {{ item }}
+            {{item}}
           </button>
         </block>
       </view>
     </block>
 
-    <view class='title_tab'>备注</view>
-    <view class="comment-btn">
+    <view class='title_tab'>备注(可多选)</view>
+    <view class='comment-btn'>
       <button wx:for="{{comment}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" class="btn {{item.selected ? 'btn-selected' : ''}}">
         {{item.title}}
       </button>
@@ -47,7 +59,7 @@
           <view class="weui-uploader">
             <view class="weui-uploader__hd">
               <view class="weui-uploader__title">房间照片</view>
-              <view class="weui-uploader__info">{{files.length}}/2</view>
+              <view class="weui-uploader__info">{{files.length}}</view>
             </view>
 
             <view class="weui-uploader__input-box">

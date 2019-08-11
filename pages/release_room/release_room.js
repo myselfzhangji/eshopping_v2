@@ -45,7 +45,22 @@ Page({
       value: '带独卫',
       selected: false,
       title: '带独卫'
-    }]
+    }],
+    price: 0,
+  },
+
+  valuechange: function (res) {
+    //console.log('value', res.detail.value)
+    this.setData({
+      price: res.detail.value
+    })
+    if (this.data.price == '') {
+      wx.showToast({
+        title: '不能为空',
+        icon: 'none'
+      })
+      return
+    }
   },
 
   checkboxChange(e) {

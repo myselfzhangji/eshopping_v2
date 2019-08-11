@@ -55,10 +55,18 @@ Page({
   valuechange: function (res) {
     //console.log('value', res)
     if (res.detail.value == '') {
-      wx.showToast({
-        title: '不能为空',
-        icon: 'none'
-      })
+      if (res.target.id == 'price'){
+        wx.showToast({
+          title: '价格不能为空',
+          icon: 'none'
+        })
+      }
+      if (res.target.id == 'location') {
+        wx.showToast({
+          title: '小区名称不能为空',
+          icon: 'none'
+        })
+      }
       return
     }
 

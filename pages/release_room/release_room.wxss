@@ -81,6 +81,12 @@
 .selects>.select>.btn{
  background-color: #FFFFFF;
 }
+.btns {
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 page,
 .page,

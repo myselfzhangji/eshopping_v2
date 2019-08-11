@@ -25,13 +25,15 @@
       </view>
     </block>
 
-    <view class='title_tab'>发布者(单选)</view>
+    <view class='btns'>发布者(单选)</view>
     <block wx:key="index" wx:for='{{ role }}'>
       <view class='select' id='{{index}}' bindtap='chooseRole'>
         <block wx:if="{{index==clickRoleId}}">
+        <view class='btns'>
           <button class='selects' style='color:black' size="mini">
             {{item}}
           </button>
+        </view>
         </block>
         <block wx:else>
           <button class='noselects' style='color:black' size="mini">

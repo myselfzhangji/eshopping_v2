@@ -8,6 +8,11 @@ onLaunch: function () {
     traceUser: true
   })
 
+  const userInfo = wx.getStorageInfoSync('userInfo')
+  if (userInfo){
+    this.globalData.userInfo = userInfo
+  }
+
     // // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())

@@ -66,6 +66,17 @@
       </button>
     </view>
 
+    <view class='title_tab'>地铁站台名</view>
+    <block>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <input id='subway_station' class="weui-input" placeholder="{{placeholder}}" value="{{value}}" bindchange='valuechange' />
+          </view>
+        </view>
+      </view>
+    </block>
+
     <view class='title_tab'>备注(可多选)</view>
     <view class='comment-btn'>
       <button id='comment' wx:for="{{comment}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" class="btn {{item.selected ? 'btn-selected' : ''}}">

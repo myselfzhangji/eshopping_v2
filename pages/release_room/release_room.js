@@ -77,6 +77,7 @@ Page({
     }],
     price: 0,
     location:'',
+    subway_station:'',
     filepath:'',
     cloudpath:'',
   },
@@ -103,12 +104,16 @@ Page({
         price: res.detail.value
       })
       //console.log('price', this.data.price)
-    }
-    if (res.target.id == 'location') {
+    } else if (res.target.id == 'location') {
       this.setData({
         location: res.detail.value
       })
       //console.log('location', this.data.location)
+    } else if (res.target.id == 'subway_station') {
+      this.setData({
+        subway_station: res.detail.value
+      })
+      //console.log('subway_station', this.data.subway_station)
     }
   },
 

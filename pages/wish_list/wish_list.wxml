@@ -1,5 +1,5 @@
 <!--pages/signin/signin.wxml-->
-<view class="page">
+<!-- <view class="page">
     <view class="page__bd">
         <view class="weui-tab">
             <view class="weui-navbar">
@@ -16,4 +16,16 @@
             </view>
         </view>
     </view>
+</view> -->
+
+<view class="" hover-class="none" hover-stop-propagation="false">
+  <view>购物车</view>
+  <view wx:for="{{carts}}" class="item-container">
+    <view class="title">
+      {{item.title}}
+    </view>
+    <view>
+      {{item.num}}
+    </view>
+  </view>
 </view>

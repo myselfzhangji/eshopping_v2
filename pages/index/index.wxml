@@ -36,7 +36,7 @@
     </view>
     <view class='action'>
     <view>￥{{item.price}}</view>
-    <view class='wish'>+</view>
+    <view class='wish' data-item="{{item}}" catchtap="addCart">+</view>
     </view>
   </view>
 </view>

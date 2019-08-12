@@ -45,7 +45,12 @@ onLaunch: function () {
     //   }
     // })
   },
+
+  /* 全局变量
+   * 其他所有模块都能使用
+   */
   globalData: {
-    userInfo: null
+    userInfo: null,
+    carts:[],     //心愿单数据全局变量
   }
 })

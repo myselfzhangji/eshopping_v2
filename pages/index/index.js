@@ -7,6 +7,23 @@ Page({
   data: {
     list:[]
   },
+
+ /* 体检到心愿单 */
+  addCart(e){
+    console.log('jdhjfhjkhjk',e)
+    const {item} = e.currentTarget.dataset
+    const i = app.globalData.carts.findIndex(v=>v._id==item._id)
+    if (i > -1){
+      //已经添加过一次购物车，数量加1
+      app.globalData.carts[i].num +=1
+      //console.log('app.globalData.carts.num', app.globalData.carts[i].num)
+    } else {
+      item.num = 1
+      app.globalData.carts.push(item)
+      //console.log('carts', app.globalData.carts)
+    }
+  },
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({

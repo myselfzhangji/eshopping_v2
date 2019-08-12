@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/wish_list/wish_list",
     "pages/index/index",
     "pages/logs/logs",
     "pages/message/message",
     "pages/release_room/release_room",
-    "pages/wish_list/wish_list",
     "pages/detail/detail",
     "pages/release_room/show_release"
   ],

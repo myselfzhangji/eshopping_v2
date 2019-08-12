@@ -20,8 +20,9 @@ Page({
     } else {
       item.num = 1
       app.globalData.carts.push(item)
-      //console.log('carts', app.globalData.carts)
+      console.log('carts', app.globalData.carts)
     }
+    wx.setStorageSync('carts', app.globalData.carts)
   },
 
   //事件处理函数

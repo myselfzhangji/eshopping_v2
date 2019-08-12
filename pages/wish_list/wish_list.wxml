@@ -18,14 +18,17 @@
     </view>
 </view> -->
 
-<view class="" hover-class="none" hover-stop-propagation="false">
-  <view>购物车</view>
-  <view wx:for="{{carts}}" class="item-container">
-    <view class="title">
-      {{item.title}}
-    </view>
+<view>
+  <view wx:for="{{list}}" id="{{item._id}}" class="item-container" bindtap="toDetail">
+    <image lazy-lazy-load="true" mode='aspectFit' class="image" src="{{item.image}}"></image>
+    <view class='content'>
+    <view class="title">{{item.title}}</view>
     <view>
-      {{item.num}}
+    <text class="tag" wx:for="{{item.tags}}">{{item}}</text>
+    </view>
+    </view>
+    <view class='action'>
+    <view>￥{{item.price}}</view>
     </view>
   </view>
 </view>

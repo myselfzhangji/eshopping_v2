@@ -46,11 +46,22 @@ onLaunch: function () {
     // })
   },
 
+  setTabbar(){
+    wx.setStorageSync('carts', this.globalData.carts)
+    const len = this.globalData.carts.reduce((sum, a)=> sum+a.sum, 0)
+    if (len>0) {
+      wx.setTabBarBadge({
+        index: 1,
+        text: len+'',
+      })
+    }
+  },
+
   /* 全局变量
    * 其他所有模块都能使用
    */
   globalData: {
     userInfo: null,
-    carts:[],     //心愿单数据全局变量
+    carts:wx.getStorageSync('carts') || [],     //心愿单数据全局变量
   }
 })

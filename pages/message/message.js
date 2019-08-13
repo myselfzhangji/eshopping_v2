@@ -1,11 +1,11 @@
 // pages/message/message.js
-var sliderWidth = 60; // 需要设置slider的宽度，用于计算中间位置
+const app = getApp()
+const db = wx.cloud.database()
+const message = db.collection('message')
 
-var app = getApp();
 Page({
   data: {
     msgData: []
-
   },
   changeInputValue(ev) {
     this.setData({
@@ -25,7 +25,7 @@ Page({
     });
   },
   //添加留言
-  addMsg() {
+  sendMsg() {
     var list = this.data.msgData;
     list.push({
       msg: this.data.inputVal
@@ -34,7 +34,18 @@ Page({
     this.setData({
       msgData: list,
       inputVal: ''
-
     });
+
+    message.add({
+      data: {
+        msg: list
+      },
+      // success: res2 => {
+      //   //console.log(res2)
+      //   wx.showToast({
+      //     title: '新增成功',
+      //   })
+      // }
+    })
   },
 })

@@ -3,7 +3,7 @@
   <!--留言-->
   <view class="send-box">
     <input bindinput="changeInputValue" class="input" type="text" value="{{inputVal}}" placeholder="请输入留言……" placeholder-class="place-input" />
-    <button size="mini" type="primary" bindtap="addMsg">发送</button>
+    <button size="mini" type="primary" bindtap="sendMsg">发送</button>
   </view>
   <!--留言列表-->
   <text class="msg-info" wx:if="{{msgData.length==0}}">暂无留言……^_^</text>

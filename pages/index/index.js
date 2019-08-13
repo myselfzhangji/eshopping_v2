@@ -25,6 +25,19 @@ Page({
     wx.setStorageSync('carts', app.globalData.carts)
   },
 
+  /* 先将本地数据库和远程数据库进行同步
+   * 解决如果远程数据库删除一个记录后，如果不同步的话，本地数据记录仍然存在报错的问题
+   */
+  onShow: function () {
+    console.log('12345')
+    db.collection('emall').get({
+      success: res => {
+        //console.log('current', res.data)
+        wx.setStorageSync('carts', res.data)
+      }
+    })
+  },
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
